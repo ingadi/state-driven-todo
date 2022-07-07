@@ -1,0 +1,95 @@
+@import url(reset.css);
+
+body {
+  font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 10vh;
+  flex: 0 1 50%;
+  padding: 0.5rem 2.5rem;
+  align-self: flex-start;
+  border: 2px solid #333;
+}
+
+.title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.input {
+  background-color: lightgray;
+  border: 0;
+  outline: 0;
+  padding: 0.3rem 0 0.3rem 0.5rem;
+  margin: 0;
+  width: 100%;
+  color: #333;
+}
+
+.input:focus {
+  border: 2px dotted gray;
+}
+
+.form__input::placeholder {
+  font-weight: bold;
+  color: gray;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 1.5rem 0;
+  gap: 0.3rem;
+  padding: 0;
+}
+
+.list:empty::after {
+  content: "\2205\00A0No tasks";
+}
+
+.list__item {
+  font-size: larger;
+  color: #333;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.list__item:has(:checked) {
+  order: 1;
+  background-color: rgba(211, 211, 211, 0.1);
+}
+
+.list__item-checkbox:checked + .list__item-text {
+  text-decoration: line-through;
+  color: rgb(115, 115, 115);
+}
+
+.list__item-remove {
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: red;
+  opacity: 0.4;
+  transition: opacity ease-in-out;
+}
+
+.list__item-remove::before {
+  content: "\2718";
+}
+
+.list__item-remove:hover {
+  opacity: 1;
+}
+
+.list__item-remove:active {
+  transform: translateY(1px);
+}
