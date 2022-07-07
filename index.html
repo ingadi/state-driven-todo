@@ -8,42 +8,103 @@
   </head>
   <body>
     <div id="app">
-      <fieldset>
+      <fieldset class="container">
         <legend>
-          <h1>Tasks</h1>
+          <h1 class="title">Tasks</h1>
         </legend>
-        <input type="text" placeholder="Add a task ( press enter to save )" />
-        <ul></ul>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 1</span>
-          <button title="Delete task" type="button"></button>
-        </li>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 1</span>
-          <button title="Delete task" type="button"></button>
-        </li>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 2</span>
-          <button type="button"></button>
-        </li>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 3</span>
-          <button title="Delete task" type="button"></button>
-        </li>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 4</span>
-          <button title="Delete task" type="button"></button>
-        </li>
-        <li>
-          <input title="Mark done" type="checkbox" name="" id="" />
-          <span>Task 5</span>
-          <button title="Delete task" type="button"></button>
-        </li>
+        <input
+          class="input"
+          type="text"
+          placeholder="Add a task ( press enter to save )"
+        />
+        <ul class="list">
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 1</span>
+            <button
+              title="Delete task"
+              class="list__item-remove"
+              type="button"
+            ></button>
+          </li>
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 1</span>
+            <button
+              title="Delete task"
+              class="list__item-remove"
+              type="button"
+            ></button>
+          </li>
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 2</span>
+            <button class="list__item-remove" type="button"></button>
+          </li>
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 3</span>
+            <button
+              title="Delete task"
+              class="list__item-remove"
+              type="button"
+            ></button>
+          </li>
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 4</span>
+            <button
+              title="Delete task"
+              class="list__item-remove"
+              type="button"
+            ></button>
+          </li>
+          <li class="list__item">
+            <input
+              title="Mark done"
+              class="list__item-checkbox"
+              type="checkbox"
+              name=""
+              id=""
+            />
+            <span class="list__item-text">Task 5</span>
+            <button
+              title="Delete task"
+              class="list__item-remove"
+              type="button"
+            ></button>
+          </li>
+        </ul>
       </fieldset>
     </div>
     <script type="module" src="/main.js"></script>
