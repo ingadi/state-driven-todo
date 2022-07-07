@@ -1,0 +1,17 @@
+{
+  "name": "to-do-app-stateful",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest --watchAll --verbose"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "jest": "^28.1.2"
+  }
+}
