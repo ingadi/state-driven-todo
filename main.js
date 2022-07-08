@@ -1,4 +1,5 @@
 import "./style.css";
+import morphdom from "morphdom";
 
 class App {
   constructor(state, dom) {
@@ -7,6 +8,7 @@ class App {
   }
 
   render() {
+    const newDom = document.createElement("ul");
     const tasksHTML = this.state
       .reduce((html, task) => {
         html.push(
@@ -29,7 +31,11 @@ class App {
         return html;
       }, [])
       .join("");
-    this.dom.innerHTML = tasksHTML;
+
+    newDom.className = "list";
+    newDom.innerHTML = tasksHTML;
+    morphdom(this.dom, newDom);
+    this.dom = newDom;
   }
 }
 
@@ -50,6 +56,10 @@ new App(
     {
       id: Date.now(),
       name: "Task 4",
+    },
+    {
+      id: Date.now(),
+      name: "Task 5",
     },
   ],
   document.querySelector(".list")

@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "morphdom": "^2.6.1"
   }
 }
