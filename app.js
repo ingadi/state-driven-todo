@@ -3,6 +3,11 @@ export class App {
   constructor(state, dom) {
     this.state = state;
     this.dom = dom;
+    this.dom.parentNode.addEventListener(
+      "change",
+      this.eventHandler.bind(this)
+    );
+    this.dom.parentNode.addEventListener("click", this.eventHandler.bind(this));
   }
 
   render() {
@@ -35,5 +40,9 @@ export class App {
     newDom.innerHTML = tasksHTML;
     morphdom(this.dom, newDom);
     this.dom = newDom;
+  }
+
+  eventHandler(event) {
+    console.log(event);
   }
 }
