@@ -24,5 +24,5 @@ new App(
       completed: false,
     },
   ],
-  document.querySelector(".list")
+  document.querySelector("[data-list]")
 ).render();
