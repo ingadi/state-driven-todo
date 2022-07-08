@@ -1,10 +1,9 @@
 import "./style.css";
 
 class App {
-  constructor(state, dom, template) {
+  constructor(state, dom) {
     this.state = state;
     this.dom = dom;
-    this.template = template;
   }
 
   render() {
@@ -53,6 +52,5 @@ new App(
       name: "Task 4",
     },
   ],
-  document.querySelector(".list"),
-  document.querySelector("#task")
+  document.querySelector(".list")
 ).render();
