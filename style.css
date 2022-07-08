@@ -8,7 +8,7 @@ body {
 
 .container {
   margin-top: 10vh;
-  flex: 0 1 50%;
+  flex: 0 1 50vw;
   padding: 0.5rem 2.5rem;
   align-self: flex-start;
   border: 2px solid #333;
