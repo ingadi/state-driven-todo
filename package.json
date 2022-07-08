@@ -6,12 +6,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "jest --watchAll --verbose"
+    "test": "jest"
   },
   "devDependencies": {
     "vite": "^2.9.9"
-  },
-  "dependencies": {
-    "jest": "^28.1.2"
   }
 }
