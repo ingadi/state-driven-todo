@@ -17,6 +17,7 @@ export class App {
             type="checkbox"
             name="${task.name}"
             id="${task.id}"
+            ${task.completed ? "checked" : ""}
           />
           <span class="list__item-text">${task.name}</span>
           <button
