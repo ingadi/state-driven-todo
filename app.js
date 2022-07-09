@@ -37,7 +37,7 @@ export class App {
       .join("");
 
     newDom.className = "list";
-    newDom.setAttribute("data-list", "");
+    newDom.dataset.list = "";
     newDom.innerHTML = tasksHTML;
     morphdom(this.dom, newDom);
     this.dom = newDom;
