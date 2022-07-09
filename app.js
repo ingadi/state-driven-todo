@@ -7,6 +7,10 @@ export class App {
       "change",
       this.eventHandler.bind(this)
     );
+    this.dom.parentNode.addEventListener(
+      "submit",
+      this.eventHandler.bind(this)
+    );
     this.dom.parentNode.addEventListener("click", this.eventHandler.bind(this));
   }
 
