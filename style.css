@@ -2,8 +2,6 @@
 
 body {
   font-family: Roboto, sans-serif;
-  /* display: flex;
-  justify-content: center; */
 }
 
 main {
@@ -26,23 +24,45 @@ main {
   color: #333;
 }
 
-.input {
+.input__text {
   background-color: lightgray;
   border: 0;
   outline: 0;
-  padding: 0.3rem 0 0.3rem 0.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
   margin: 0;
-  width: 100%;
   color: #333;
 }
 
-.input:focus {
+.input__text:focus {
   border: 2px dotted gray;
 }
 
-.form__input::placeholder {
-  font-weight: bold;
-  color: gray;
+.input-group {
+  display: flex;
+}
+
+.input-group > .input__text {
+  flex: 10 1 auto;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.button--clear {
+  text-transform: uppercase;
+  border: 0;
+  background: rgb(231, 231, 231);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.button--clear:hover {
+  background: rgb(194, 194, 194);
+}
+
+.input-group > .input__button {
+  flex: 1 1 auto;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .list {
@@ -95,6 +115,6 @@ main {
   opacity: 1;
 }
 
-.list__item-remove:active {
+button:active {
   transform: translateY(1px);
 }

@@ -12,15 +12,19 @@
         <legend>
           <h1 class="title">Tasks</h1>
         </legend>
-        <!--div wraps to capture all children events -->
-        <div>
-          <input
-            class="input"
-            type="text"
-            placeholder="Add a task ( press enter to save )"
-          />
+        <form>
+          <div class="input-group">
+            <input
+              class="input__text"
+              type="text"
+              placeholder="What do you want done?"
+            />
+            <button class="input__button button--clear" type="submit">
+              Add task
+            </button>
+          </div>
           <ul class="list" data-list=""></ul>
-        </div>
+        </form>
       </fieldset>
     </main>
     <script type="module" src="/main.js"></script>
