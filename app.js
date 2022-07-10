@@ -1,22 +1,19 @@
 import morphdom from "morphdom";
+
 export class App {
-  constructor(state, dom) {
-    this.state = state;
-    this.dom = dom;
-    this.dom.parentNode.addEventListener(
-      "change",
-      this.eventHandler.bind(this)
-    );
-    this.dom.parentNode.addEventListener(
-      "submit",
-      this.eventHandler.bind(this)
-    );
-    this.dom.parentNode.addEventListener("click", this.eventHandler.bind(this));
+  #state;
+  #taskListDom;
+
+  constructor(state, taskListDom, formElement) {
+    this.#state = state;
+    this.#taskListDom = taskListDom;
+    taskListDom.addEventListener("click", this.#eventHandler.bind(this));
+    formElement.addEventListener("submit", this.#eventHandler.bind(this));
   }
 
   render() {
-    const newDom = document.createElement("ul");
-    const tasksHTML = this.state
+    const newTaskListDom = document.createElement("div");
+    const taskListHTML = this.#state
       .reduce((html, task) => {
         html.push(
           `<li class="list__item">
@@ -40,14 +37,13 @@ export class App {
       }, [])
       .join("");
 
-    newDom.className = "list";
-    newDom.dataset.list = "";
-    newDom.innerHTML = tasksHTML;
-    morphdom(this.dom, newDom);
-    this.dom = newDom;
+    newTaskListDom.innerHTML = taskListHTML;
+    morphdom(this.#taskListDom.children[0], newTaskListDom);
+    this.#taskListDom.children.innerHTML = taskListHTML;
   }
 
-  eventHandler(event) {
+  #eventHandler(event) {
     console.log(event);
+    event.preventDefault();
   }
 }
