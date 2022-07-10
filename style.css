@@ -2,26 +2,27 @@
 
 body {
   font-family: Roboto, sans-serif;
-}
-
-main {
   display: flex;
   justify-content: center;
 }
 
 .container {
-  margin-top: 10vh;
-  flex: 0 1 50vw;
-  padding: 0.5rem 2.5rem;
   align-self: flex-start;
+  margin-top: 10vh;
   border: 2px solid #333;
+  position: relative;
+  width: 60vw;
+  padding: 3rem;
 }
 
 .title {
+  text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #333;
+  position: absolute;
+  background: white;
+  top: -1.7rem;
+  left: 3rem;
 }
 
 .input__text {
@@ -50,13 +51,13 @@ main {
 .button--clear {
   text-transform: uppercase;
   border: 0;
-  background: rgb(231, 231, 231);
+  background: rgb(194, 194, 194);
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
 
 .button--clear:hover {
-  background: rgb(194, 194, 194);
+  background: rgb(186, 186, 186);
 }
 
 .input-group > .input__button {
@@ -98,6 +99,7 @@ main {
 
 .list__item-remove {
   margin-left: auto;
+  /* margin-right: 4rem; */
   background: transparent;
   border: 0;
   outline: 0;
@@ -108,7 +110,7 @@ main {
 }
 
 .list__item-remove::before {
-  content: "\2718";
+  content: "\2716";
 }
 
 .list__item-remove:hover {
