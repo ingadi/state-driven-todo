@@ -24,5 +24,6 @@ new App(
       completed: false,
     },
   ],
-  document.querySelector("[data-list]")
+  document.querySelector(".js-task-list"),
+  document.querySelector("form")
 ).render();
