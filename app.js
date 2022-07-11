@@ -32,6 +32,7 @@ export class App {
           <button
             title="Delete task"
             class="list__item-remove"
+            data-task-id="${task.id}"
             type="button"
           ></button>
         </li>`
@@ -62,6 +63,12 @@ export class App {
         (task) => task.id === event.target.id
       );
       taskToUpdate.completed = event.target.checked;
+    } else if (event.target.type === "button") {
+      const taskIdx = this.#state.findIndex(
+        (task) => task.id === event.target.dataset.taskId
+      );
+      this.#state.splice(taskIdx, 1);
+      this.render();
     }
   }
 }
