@@ -75,7 +75,7 @@ body {
   padding: 0;
 }
 
-.list:empty::after {
+.list > div:empty::after {
   content: "\2205\00A0No tasks";
 }
 
