@@ -35,7 +35,7 @@ body {
 }
 
 .input__text:focus {
-  border: 2px dotted gray;
+  outline: 2px dotted gray;
 }
 
 .input-group {
@@ -85,6 +85,19 @@ body {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+:not(.first-render) > .list__item:last-child {
+  animation: highlight 1s ease-in-out;
+}
+
+@keyframes highlight {
+  from {
+    background-color: rgba(211, 211, 211, 0.3);
+  }
+  to {
+    background-color: white;
+  }
 }
 
 .list__item:has(:checked) {
