@@ -48,17 +48,20 @@ export class App {
   #eventHandler(event) {
     if (event.type === "submit") {
       event.preventDefault();
-
       // Todo: Fix state mutation later
       // Todo: handle data validation in state class later
       this.#state.push({
-        id: Date.now(),
+        id: `${Date.now() * Math.random()}`,
         name: new FormData(event.target).get("task-name"),
         completed: false,
       });
       event.target.reset();
       this.render();
-      return;
+    } else if (event.target.type === "checkbox") {
+      const taskToUpdate = this.#state.find(
+        (task) => task.id === event.target.id
+      );
+      taskToUpdate.completed = event.target.checked;
     }
   }
 }
