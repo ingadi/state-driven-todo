@@ -4,22 +4,22 @@ import { App } from "./app";
 new App(
   [
     {
-      id: Date.now(),
+      id: Date.now() * Math.random(),
       name: "Task 1",
       completed: true,
     },
     {
-      id: Date.now(),
+      id: Date.now() * Math.random(),
       name: "Task 2",
       completed: false,
     },
     {
-      id: Date.now(),
+      id: Date.now() * Math.random(),
       name: "Task 3",
       completed: false,
     },
     {
-      id: Date.now(),
+      id: Date.now() * Math.random(),
       name: "Task 4",
       completed: false,
     },
