@@ -9,12 +9,15 @@
   <body>
     <main class="container">
       <h1 class="title">Tasks</h1>
-      <form>
+      <form class="js-form">
         <div class="input-group">
           <input
             class="input__text js-task-input"
             type="text"
             placeholder="What do you want done?"
+            name="task-name"
+            autocomplete="off"
+            required
           />
           <button class="input__button button--clear" type="submit">
             Add task
