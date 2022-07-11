@@ -25,5 +25,5 @@ new App(
     },
   ],
   document.querySelector(".js-task-list"),
-  document.querySelector("form")
+  document.querySelector(".js-form")
 ).render();
