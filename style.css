@@ -102,7 +102,7 @@ body {
 
 .list__item:has(:checked) {
   order: 1;
-  background-color: rgba(211, 211, 211, 0.1);
+  /* background-color: rgba(211, 211, 211, 0.1); */
 }
 
 .list__item-checkbox:checked + .list__item-text {
