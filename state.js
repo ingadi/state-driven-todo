@@ -14,16 +14,15 @@ export class State {
   }
 
   async addItem(name) {
-    if (name?.length > 0) {
-      this.#items.push({
-        id: `${crypto.randomUUID()}-${Date.now()}`,
-        name,
-        completed: false,
-      });
-      setTimeout(() => this.#store.saveItems(this.#items), 0);
-      return;
-    }
-    throw "Invalid name";
+    if (name?.length < 1) throw "Invalid name";
+
+    this.#items.push({
+      id: `${crypto.randomUUID()}-${Date.now()}`,
+      name,
+      completed: false,
+    });
+
+    setTimeout(() => this.#store.saveItems(this.#items), 0);
   }
 
   async findItem(id) {
@@ -37,7 +36,6 @@ export class State {
       const [_, task] = await this.findItem(id);
       for (const prop in updates) task[prop] = updates[prop];
       setTimeout(() => this.#store.saveItems(this.#items), 0);
-      return;
     } catch (error) {
       console.error(error);
     }
