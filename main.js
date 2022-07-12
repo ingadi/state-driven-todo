@@ -1,29 +1,9 @@
 import "./style.css";
 import { App } from "./app";
+import { State } from "./state";
 
 new App(
-  [
-    {
-      id: `${Date.now() * Math.random()}`,
-      name: "Task 1",
-      completed: true,
-    },
-    {
-      id: `${Date.now() * Math.random()}`,
-      name: "Task 2",
-      completed: false,
-    },
-    {
-      id: `${Date.now() * Math.random()}`,
-      name: "Task 3",
-      completed: false,
-    },
-    {
-      id: `${Date.now() * Math.random()}`,
-      name: "Task 4",
-      completed: false,
-    },
-  ],
+  new State(),
   document.querySelector(".js-task-list"),
   document.querySelector(".js-form")
 ).render();

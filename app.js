@@ -3,20 +3,17 @@ import morphdom from "morphdom";
 export class App {
   #state;
   #taskListDom;
-  #renderCount;
 
   constructor(state, taskListDom, formElement) {
     this.#state = state;
     this.#taskListDom = taskListDom;
-    this.#renderCount = 0;
     taskListDom.addEventListener("click", this.#eventHandler.bind(this));
     formElement.addEventListener("submit", this.#eventHandler.bind(this));
   }
 
   render() {
-    this.#renderCount++;
     const newTaskListDom = document.createElement("div");
-    const taskListHTML = this.#state
+    const taskListHTML = this.#state.items
       .reduce((html, task) => {
         html.push(
           `<li class="list__item">
@@ -41,34 +38,27 @@ export class App {
       }, [])
       .join("");
 
-    newTaskListDom.className = this.#renderCount < 2 ? "first-render" : "";
     newTaskListDom.innerHTML = taskListHTML;
     morphdom(this.#taskListDom.children[0], newTaskListDom);
   }
 
-  #eventHandler(event) {
-    if (event.type === "submit") {
-      event.preventDefault();
-      // Todo: Fix state mutation later
-      // Todo: handle data validation in state class later
-      this.#state.push({
-        id: `${Date.now() * Math.random()}`,
-        name: new FormData(event.target).get("task-name"),
-        completed: false,
-      });
-      event.target.reset();
-      this.render();
-    } else if (event.target.type === "checkbox") {
-      const taskToUpdate = this.#state.find(
-        (task) => task.id === event.target.id
-      );
-      taskToUpdate.completed = event.target.checked;
-    } else if (event.target.type === "button") {
-      const taskIdx = this.#state.findIndex(
-        (task) => task.id === event.target.dataset.taskId
-      );
-      this.#state.splice(taskIdx, 1);
-      this.render();
+  async #eventHandler(event) {
+    try {
+      if (event.type === "submit") {
+        event.preventDefault();
+        await this.#state.addItem(new FormData(event.target).get("task-name"));
+        event.target.reset();
+        this.render();
+      } else if (event.target.type === "checkbox") {
+        await this.#state.updateItem(event.target.id, {
+          completed: event.target.checked,
+        });
+      } else if (event.target.type === "button") {
+        await this.#state.deleteItem(event.target.dataset.taskId);
+        this.render();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 }
