@@ -1,28 +1,12 @@
+import { Store } from "./store";
+
 export class State {
   #items;
+  #store;
+
   constructor() {
-    this.#items = [
-      {
-        id: `${crypto.randomUUID()}-${Date.now()}`,
-        name: "Task 1",
-        completed: true,
-      },
-      {
-        id: `${crypto.randomUUID()}-${Date.now()}`,
-        name: "Task 2",
-        completed: false,
-      },
-      {
-        id: `${crypto.randomUUID()}-${Date.now()}`,
-        name: "Task 3",
-        completed: false,
-      },
-      {
-        id: `${crypto.randomUUID()}-${Date.now()}`,
-        name: "Task 4",
-        completed: false,
-      },
-    ];
+    this.#store = new Store("tasks");
+    this.#items = this.#store.items;
   }
 
   get items() {
@@ -36,6 +20,7 @@ export class State {
         name,
         completed: false,
       });
+      setTimeout(() => this.#store.saveItems(this.#items), 0);
       return;
     }
     throw "Invalid name";
@@ -51,6 +36,7 @@ export class State {
     try {
       const [_, task] = await this.findItem(id);
       for (const prop in updates) task[prop] = updates[prop];
+      setTimeout(() => this.#store.saveItems(this.#items), 0);
       return;
     } catch (error) {
       console.error(error);
@@ -61,6 +47,7 @@ export class State {
     try {
       const [taskIdx] = await this.findItem(id);
       this.#items.splice(taskIdx, 1);
+      setTimeout(() => this.#store.saveItems(this.#items), 0);
     } catch (error) {
       console.error(error);
     }
