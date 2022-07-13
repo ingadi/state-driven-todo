@@ -33,7 +33,7 @@ export class State {
 
   async updateItem(id, updates) {
     try {
-      const [_, task] = await this.findItem(id);
+      const [, task] = await this.findItem(id);
       for (const prop in updates) task[prop] = updates[prop];
       setTimeout(() => this.#store.saveItems(this.#items), 0);
     } catch (error) {
