@@ -6,16 +6,23 @@ export class App {
 
   constructor(state, taskListDom, formElement) {
     this.#state = state;
-    this.#taskListDom = taskListDom;
+    this.#taskListDom = taskListDom.firstElementChild;
     taskListDom.addEventListener("click", this.#eventHandler.bind(this));
     formElement.addEventListener("submit", this.#eventHandler.bind(this));
   }
 
+  static nodeFromString(htmlStr) {
+    const template = document.createElement("template");
+    template.innerHTML = htmlStr;
+    return template.content.firstElementChild;
+  }
+
   render() {
-    const taskListHTML = this.#state.items
-      .map(
-        (task) =>
-          `<li class="list__item">
+    const newTaskListDom = App.nodeFromString(
+      `<div>${this.#state.items
+        .map(
+          (task) =>
+            `<li class="list__item">
             <input
               title="Mark done"
               class="list__item-checkbox"
@@ -32,12 +39,10 @@ export class App {
               type="button"
             ></button>
           </li>`
-      )
-      .join("");
-    // Can use tagged template functions to return node and skip doing the innerHTML stuff
-    const newTaskListDom = document.createElement("div");
-    newTaskListDom.innerHTML = taskListHTML;
-    morphdom(this.#taskListDom.children[0], newTaskListDom);
+        )
+        .join("")}</div>`
+    );
+    morphdom(this.#taskListDom, newTaskListDom);
   }
 
   async #eventHandler(event) {
