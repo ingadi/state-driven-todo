@@ -14,9 +14,8 @@ export class App {
   render() {
     const newTaskListDom = document.createElement("div");
     const taskListHTML = this.#state.items
-      .reduce((html, task) => {
-        html.push(
-          `<li class="list__item">
+      .map((task) => {
+        return `<li class="list__item">
           <input
             title="Mark done"
             class="list__item-checkbox"
@@ -32,12 +31,9 @@ export class App {
             data-task-id="${task.id}"
             type="button"
           ></button>
-        </li>`
-        );
-        return html;
-      }, [])
+        </li>`;
+      })
       .join("");
-
     newTaskListDom.innerHTML = taskListHTML;
     morphdom(this.#taskListDom.children[0], newTaskListDom);
   }
