@@ -12,7 +12,6 @@ export class App {
   }
 
   render() {
-    const newTaskListDom = document.createElement("div");
     const taskListHTML = this.#state.items
       .map(
         (task) =>
@@ -35,6 +34,8 @@ export class App {
           </li>`
       )
       .join("");
+    // Can use tagged template functions to return node and skip doing the innerHTML stuff
+    const newTaskListDom = document.createElement("div");
     newTaskListDom.innerHTML = taskListHTML;
     morphdom(this.#taskListDom.children[0], newTaskListDom);
   }
